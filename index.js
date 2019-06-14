@@ -5,7 +5,7 @@ const app = express();
 app.use(bodyParser.json());
 
 mongoose.connect(
-  PROCESS.ENV.MONGODB_URI || "mongodb://localhost:27017/reducURL-server",
+  process.env.MONGODB_URI || "mongodb://localhost:27017/reducURL-server",
   {
     useNewURLParser: true
   }
