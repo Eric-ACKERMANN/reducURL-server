@@ -22,10 +22,6 @@ const Url = require("./models/url-model");
 const urlRoutes = require("./routes/url-routes");
 app.use(urlRoutes);
 
-app.all("*", (req, res) => {
-  res.status(404).send("Page introuvable");
-});
-
 app.listen(process.env.PORT || 3001, () => {
   console.log("Server has started");
 });
