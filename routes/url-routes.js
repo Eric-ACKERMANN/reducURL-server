@@ -33,7 +33,7 @@ router.get("/url", async (req, res) => {
 
 /* UPDATE */
 
-router.post("url/update", async (req, res) => {
+router.post("/url/update", async (req, res) => {
   try {
     if (req.body) {
       const modifiedUrl = req.body.url;
@@ -54,7 +54,7 @@ router.post("url/update", async (req, res) => {
 
 // Road used in production only
 
-router.post("url/delete", async (req, res) => {
+router.post("/url/delete", async (req, res) => {
   try {
     if (req.body) {
       await Url.findOneAndRemove({ _id: req.body.id });
