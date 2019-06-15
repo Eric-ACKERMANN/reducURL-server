@@ -47,6 +47,7 @@ router.post("/url/update", async (req, res) => {
         url[modifiedKey[i]] = modifiedUrl[modifiedKey[i]];
       }
     }
+    console.log("Hey");
     console.log("url after", url);
     await url.save();
     return res.status(200).json("Url successfully updated");
