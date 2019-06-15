@@ -13,7 +13,7 @@ router.post("/url/create", async (req, res) => {
         views: 0
       });
       await newURL.save();
-      return res.status(200).json(newClient);
+      return res.status(200).json(newURL);
     }
   } catch (error) {
     res.status(400).json(error.message);
