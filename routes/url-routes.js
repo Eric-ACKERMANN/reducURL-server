@@ -46,10 +46,10 @@ router.post("/url/update", async (req, res) => {
       for (i = 0; i < modifiedKey.length; i++) {
         url[modifiedKey[i]] = modifiedUrl[modifiedKey[i]];
       }
+
+      console.log("url after", url);
+      await url.save();
     }
-    console.log("Hey");
-    console.log("url after", url);
-    await url.save();
     return res.status(200).json("Url successfully updated");
   } catch (error) {
     res.status(400).json(error.message);
