@@ -37,10 +37,11 @@ router.post("/url/update", async (req, res) => {
   try {
     if (req.body) {
       const modifiedUrl = req.body.url;
-      console.log(modifiedUrl);
+      console.log("modifiedURL", modifiedUrl);
       const url = await Url.findById(req.body.id);
-      console.log(url);
+      console.log("url", url);
       const modifiedKey = Object.keys(modifiedUrl);
+      console.log("modifiedKey", modifiedKey);
 
       for (i = 0; i < modifiedKey.length; i++) {
         url[modifiedKey[i]] = modifiedUrl[modifiedKey[i]];
