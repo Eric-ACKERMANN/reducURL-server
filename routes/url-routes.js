@@ -37,7 +37,9 @@ router.post("/url/update", async (req, res) => {
   try {
     if (req.body) {
       const modifiedUrl = req.body.url;
+      console.log(modifiedUrl);
       const url = await Url.findById(req.body.id);
+      console.log(url);
       const modifiedKey = Object.keys(modifiedUrl);
 
       for (i = 0; i < modifiedKey.length; i++) {
