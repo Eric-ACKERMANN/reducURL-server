@@ -10,7 +10,8 @@ router.post("/url/create", async (req, res) => {
       const newURL = new Url({
         initialURL: req.body.initialURL,
         shortURL: req.body.shortURL,
-        views: 0
+        views: 0,
+        extension: req.body.extension
       });
       await newURL.save();
       return res.status(200).json(newURL);
@@ -37,17 +38,11 @@ router.post("/url/update", async (req, res) => {
   try {
     if (req.body) {
       const modifiedUrl = req.body.url;
-      console.log("modifiedURL", modifiedUrl);
       const url = await Url.findById(req.body.id);
-      console.log("url", url);
       const modifiedKey = Object.keys(modifiedUrl);
-      console.log("modifiedKey", modifiedKey);
-
       for (i = 0; i < modifiedKey.length; i++) {
         url[modifiedKey[i]] = modifiedUrl[modifiedKey[i]];
       }
-
-      console.log("url after", url);
       await url.save();
     }
     return res.status(200).json("Url successfully updated");
